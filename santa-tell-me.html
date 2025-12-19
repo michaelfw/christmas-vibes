@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Christmas Vibes</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <style>
+            body {
+                /* background-color: #494D5F; */
+                background-image: linear-gradient(#E4BF4A, #004822);
+                color: white;
+                font-family: 'Geom', sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                text-align: center;
+            }
+
+            #lyrics-screen {
+                font-size: 2rem;
+                font-weight: bold;
+                min-height: 100px;
+                padding: 20px;
+                margin: 10px;
+                color: #E5EAF5;
+                /* Gold Color */
+                text-shadow: 0 0 20px black;
+                transition: opacity 0.5s;
+            }
+
+            button {
+                font-family: 'Geom', sans-serif;
+                padding: 15px 30px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                background-color: #00911f;
+                color: white;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                margin: 20px;
+                z-index: 1;
+            }
+
+            button:hover {
+                background-color: #006b17;
+                color: white;
+            }
+
+            #footer {
+                bottom: 0;
+                position: absolute;
+                font-size: 1.2rem;
+                font-weight: bold;
+                min-height: 30px;
+                padding: 10px;
+                color: #948c8c;
+            }
+
+            .appear {
+                animation: fadeIn 0.5s ease-in;
+            }
+
+            #image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 20px;
+                z-index: 1;
+            }
+
+            #image-1 {
+                width: 300px;
+                border-radius: 50%;
+            }
+
+            /* Animation*/
+            .wrapper {
+                position: fixed;
+            }
+            .box div {
+                position: fixed;
+                width: 50px;
+                height: 50px;
+                background-color:transparent;
+            }
+            .box div:nth-child(1) {
+                top: 12%;
+                left: 42%;
+                animation: animate 10s linear infinite;
+            }
+            .box div:nth-child(2) {
+                top: 70%;
+                left: 50%;
+                animation: animate 7s linear infinite;
+            }
+            .box div:nth-child(3) {
+                top: 17%;
+                left: 6%;
+                animation: animate 9s linear infinite;
+            }
+            .box div:nth-child(4) {
+                top: 20%;
+                left: 60%;
+                animation: animate 10s linear infinite;
+            }
+            .box div:nth-child(5) {
+                top: 67%;
+                left: 10%;
+                animation: animate 6s linear infinite;
+            }
+            .box div:nth-child(6) {
+                top: 80%;
+                left: 70%;
+                animation: animate 12s linear infinite;
+            }
+            .box div:nth-child(7) {
+                top: 60%;
+                left: 80%;
+                animation: animate 15s linear infinite;
+            }
+            .box div:nth-child(8) {
+                top: 32%;
+                left: 25%;
+                animation: animate 16s linear infinite;
+            }
+            .box div:nth-child(9) {
+                top: 90%;
+                left: 25%;
+                animation: animate 9s linear infinite;
+            }
+            .box div:nth-child(10) {
+                top: 20%;
+                left: 80%;
+                animation: animate 5s linear infinite;
+            }
+
+            @keyframes animate {
+                0% {
+                    transform: scale(0) translateY(0) rotate(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(0.3) translateY(-90px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="image-container">
+            <img id="image-1" src="animation.gif" alt="Animation Gif">
+        </div>
+
+        <div id="lyrics-screen">♫ Click Button to Play ♫</div>
+
+        <button onclick="startPlayer()">START MUSIC</button>
+
+        <div id="footer">Cha</div>
+
+        <div class="wrapper">
+            <div class="box">
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+                <div><img src="snowflake.png" /></div>
+            </div>
+        </div>
+
+        <script>
+            const file = "santa-tell-me.mp3";
+
+            const music = [
+                { text: "♫ Santa, tell me ♫", delay: 2200 },
+                { text: "♫ If you're really there ♫", delay: 2300 },
+                { text: "♫ Don't make me fall in love again ♫", delay: 2700 },
+                { text: "♫ If he won't be here next year ♫", delay: 3500 },
+                { text: "♫ Santa, tell me ♫", delay: 1700 },
+                { text: "♫ If he really cares ♫", delay: 2200 },
+                { text: "♫ 'Cause I can't give it all away ♫", delay: 2800 },
+                { text: "♫ If he won't be here ♫", delay: 1800 },
+                { text: "♫ Next year ♫", delay: 1800 },
+                { text: "♫ I've been down this road before ♫", delay: 2400 },
+                { text: "♫ Fell in love on Christmas night (ooh, babe) ♫", delay: 2600 },
+                { text: "♫ But on New Year's Day ♫", delay: 1400 },
+                { text: "♫ I woke up and he wasn't by my side ♫", delay: 3600 },
+                { text: "♫ Now I need someone to hold ♫", delay: 2500 },
+                { text: "♫ Be my fire in the cold (yeah-yeah) ♫", delay: 2500 },
+                { text: "♫ But it's hard to tell if this is just a fling or if it's ♫", delay: 4100 },
+                { text: "♫ True love ♫", delay: 1600 },
+                { text: "♫ That he thinks of (so) ♫", delay: 2400 },
+                { text: "♫ So next Christmas ♫", delay: 2200 },
+                { text: "♫ I'm not all alone ♫", delay: 3000 },
+                { text: "♫ Boy ♫", delay: 1200 },
+                { text: "♫ Santa, tell me ♫", delay: 1800 },
+                { text: "♫ If you're really there ♫", delay: 2300 },
+                { text: "♫ Don't make me fall in love again ♫", delay: 2700 },
+                { text: "♫ If he won't be here next year ♫", delay: 3300 },
+                { text: "♫ Santa, tell me ♫", delay: 1800 },
+                { text: "♫ If he really cares ♫", delay: 2200 },
+                { text: "♫ 'Cause I can't give it all away ♫", delay: 2800 },
+                { text: "♫ If he won't be here ♫", delay: 1800 },
+                { text: "♫ Next year ♫", delay: 2000 },
+            ];
+
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            async function startPlayer() {
+                const screen = document.getElementById("lyrics-screen");
+                const startButton = document.querySelector("button");
+
+                let audio = new Audio(file);
+                audio.play();
+
+                // Disable Button After Clicked
+                startButton.disabled = true;
+                startButton.innerText = "Playing...";
+
+                // Display Lyrics
+                for (let line of music) {
+                    screen.innerText = line.text;
+
+                    // Animation Effect
+                    screen.classList.remove("appear"); // Reset Animation
+                    void screen.offsetWidth; // CSS Trick to Trigger Reflow
+                    screen.classList.add("appear"); // Start Animation
+
+                    await sleep(line.delay);
+                }
+
+                screen.innerText = "Merry Christmas!";
+                startButton.disabled = false;
+                startButton.innerText = "START MUSIC";
+            }
+        </script>
+    </body>
+
+</html>
